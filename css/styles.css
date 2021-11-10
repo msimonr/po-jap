@@ -7,6 +7,7 @@ canvas {
     background: #EEE;
     display: block;
     margin: 0 auto;
+    margin-top: 5em;
     border: solid 6px #AAA;
     border-radius: 10px;
 }
