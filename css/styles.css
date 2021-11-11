@@ -1,7 +1,7 @@
 html,
 body {
-    background: #111;
-    color: #AAA;
+    background: #24252A;
+    color: #edf0f1;
 }
 
 canvas {
@@ -11,4 +11,36 @@ canvas {
     /* margin-top: 5em; */
     border: solid 6px #AAA;
     border-radius: 10px;
+}
+
+.titulo1 {
+    color: #25cf96;
+    text-align: center;
+    font-size: 2.8em;
+}
+
+ul {
+    font-size: 1.5em;
+}
+
+li {
+    margin: 0.3em;
+}
+
+ul ul {
+    font-size: 0.9em;
+}
+
+.imgPrincipal {
+    box-shadow: 0.1em 0.1em 0.5em black;
+}
+
+a {
+    text-decoration: none;
+    color: #AAA;
+}
+
+.red {
+    color: #e72525;
+    /* text-decoration: line-through; */
 }
