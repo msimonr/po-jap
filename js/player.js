@@ -8,30 +8,34 @@ document.addEventListener('DOMContentLoaded', function() {
     //sprite settings
     const player = {
         frameWidth: 200, //ancho de cada sprite
-        frameHeight: 200, //alto de cada sprite
+        frameHeight: 400, //alto de cada sprite
         xPos: 60, //pos de inicio sprite X (0 izquierda)
-        yPos: 100, //pos de inicio sprite Y (0 arriba)
-        scale: 0.5, //escala de sprite
+        yPos: 20, //pos de inicio sprite Y (0 arriba)
+        scale: 0.45, //escala de sprite
         sprites: undefined
     };
 
     //Animacion
-    const timeToUpdate = 10; //tiempo de refresco para animacion
     let count = 0; //tiempo desde ultima actualizacion de animacion
     let estados = [];
 
     //carga de hoja de sprites
     player.sprites = new Image();
-    player.sprites.src = "img/spritePrueba1.png";
+    player.sprites.src = "img/maurisSpriteSheet.png";
+
+    //carga parlante
+    let parlante = new Image();
+    parlante.src = "img/parlante.png";
 
     const State = {
         states: {}, // estados creados
-        generateState: function(name, startIndex, endIndex) {
+        generateState: function(name, startIndex, endIndex, timeToUpdate) {
             if (!this.states[name]) {
                 this.states[name] = {
                     frameIndex: startIndex,
                     startIndex: startIndex,
-                    endIndex: endIndex
+                    endIndex: endIndex,
+                    timeToUpdate: timeToUpdate
                 };
             }
         },
@@ -44,9 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //:::: Generar estados ::::
 
-    State.generateState('walkRight', 0, 1);
-    State.generateState('walkLeft', 0, 1); //TODO: Cambiar pos de sprites.
-    State.generateState('idle', 0, 0);
+    State.generateState('walkRight', 4, 5, 15);
+    State.generateState('walkLeft', 6, 7, 15);
+    State.generateState('idle', 0, 3, 80);
 
     function animate() {
         let state = estados[0];
@@ -62,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
             player.frameHeight * player.scale
         );
         count++;
-        if (count > timeToUpdate) {
+        if (count > state.timeToUpdate) {
             state.frameIndex++;
             count = 0;
         }
@@ -72,8 +76,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function frame() {
+        let paredY = 160;
         context.clearRect(0, 0, width, height);
+        context.fillStyle = "#3d200a"
+        context.fillRect(0, paredY, width, height);
+        context.fillStyle = "#ababab"
+        context.fillRect(0, 0, width, paredY);
         animate();
+        context.drawImage(parlante, 10, 153, 50, 50);
+        context.drawImage(parlante, 340, 153, 50, 50);
         requestAnimationFrame(frame);
     }
 
@@ -85,13 +96,13 @@ document.addEventListener('DOMContentLoaded', function() {
         if (event.code === 'ArrowRight') {
             estados[0] = State.getState('walkRight');
             if (player.xPos < width - player.frameWidth * player.scale) {
-                player.xPos += 1;
+                player.xPos += 3;
             }
         }
         if (event.code === 'ArrowLeft') {
             estados[0] = State.getState('walkLeft');
             if (player.xPos > 0) {
-                player.xPos -= 1;
+                player.xPos -= 3;
             }
         }
     }, false);
