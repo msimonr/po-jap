@@ -283,6 +283,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, false);
 
+    document.getElementById('qButton').addEventListener('click', function(){
+        if (diapoActual > 0) {
+            diapoActual--;
+            updateDiapos(diapoContainer, numDiapo, diapoActual);
+        }
+    });
+
+
+    document.getElementById('eButton').addEventListener('click', function(){
+        if (diapoActual < CANT_DIAPOS - 1) {
+            diapoActual++;
+            updateDiapos(diapoContainer, numDiapo, diapoActual);
+        }
+    });
+
 });
 
 function updateDiapos(container, numDiapo, diapoActual) {
