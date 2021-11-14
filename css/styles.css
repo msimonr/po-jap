@@ -6,11 +6,8 @@ body {
 
 canvas {
     background: #EEE;
-    /* display: block; */
-    /* margin: 0 auto; */
-    /* margin-top: 5em; */
     border: solid 2px rgb(0, 0, 0);
-    /* border-radius: 10px; */
+
 }
 
 .cuadrado {
@@ -41,7 +38,13 @@ ul ul {
 }
 
 .imgPrincipal {
+    width: 25em;
+    max-width: 280px;
     box-shadow: 0.1em 0.1em 0.5em black;
+}
+
+.dm1{
+    max-width: 500px;
 }
 
 a {
@@ -57,4 +60,23 @@ a {
 .tuto p {
     text-transform: uppercase;
     margin-top: 0.5em;
+}
+
+.tuto2 .cuadrado {
+    font-size: 1.1rem;
+    width: 1.5em;
+    height: 1.5em;
+    border: solid 2px #25d097;
+    border-radius: 20%;
+    margin: auto 0px;
+}
+
+.tuto2 p {
+    text-transform: uppercase;
+    margin-top: 0.5em;
+    font-size: 0.8em;
+}
+
+.dm1P{
+    font-size: 1.2em;
 }
