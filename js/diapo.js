@@ -247,7 +247,7 @@ let diapos = [
             <li>Un curso técnico desafiante y entretenido.</li>
             <li>CT me ayudo a identificar donde fallaba y como puedo mejorarlo.</li>
             <li>Me arrepiento no haberle dedicado mas tiempo a Voxy al inicio 😳.</li>
-            <li>¡Gracias Ylva, Virginia y Daniel!</li>
+            <li>¡Gracias Ylva, Virginia, Daniel y 208!</li>
         </ul>
     </div>
 </div>
@@ -283,7 +283,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, false);
 
-    document.getElementById('qButton').addEventListener('click', function(){
+    document.getElementById('qButton').addEventListener('click', function() {
         if (diapoActual > 0) {
             diapoActual--;
             updateDiapos(diapoContainer, numDiapo, diapoActual);
@@ -291,7 +291,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
-    document.getElementById('eButton').addEventListener('click', function(){
+    document.getElementById('eButton').addEventListener('click', function() {
         if (diapoActual < CANT_DIAPOS - 1) {
             diapoActual++;
             updateDiapos(diapoContainer, numDiapo, diapoActual);
